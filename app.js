@@ -247,7 +247,7 @@ function alignStageToViewportCenter(){
 
       // スマホ（HISTORYが下に落ちる幅）では、見える範囲の上側に寄せたいのでオフセットを入れる
       const isMobileLayout = window.matchMedia('(max-width: 920px)').matches;
-      const liftPx = isMobileLayout ? 180 : 0;
+      const liftPx = isMobileLayout ? 160 : 0;
 
       const viewportCenterY = (window.innerHeight / 2) - liftPx;
 
