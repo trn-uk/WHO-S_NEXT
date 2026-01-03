@@ -237,7 +237,7 @@ function getColsForPick(n){
 }
 
 function alignStageToViewportCenter(){
-  const stage = document.getElementById('stage');
+      const stage = document.getElementById('stage');
       if (!stage) return;
 
       stage.style.transform = 'translateY(0px)';
@@ -245,13 +245,24 @@ function alignStageToViewportCenter(){
       const r = stage.getBoundingClientRect();
       const stageCenterY = r.top + r.height / 2;
 
-      // スマホ（HISTORYが下に落ちる幅）では、見える範囲の上側に寄せたいのでオフセットを入れる
       const isMobileLayout = window.matchMedia('(max-width: 920px)').matches;
       const liftPx = isMobileLayout ? 160 : 0;
 
       const viewportCenterY = (window.innerHeight / 2) - liftPx;
+      let delta = viewportCenterY - stageCenterY;
 
-      const delta = viewportCenterY - stageCenterY;
+      // --- 追加：ヘッダー領域にステージが被らないようにする ---
+      const header = document.querySelector('header');
+      if (header){
+        const hr = header.getBoundingClientRect();
+        const safeTop = hr.bottom + 8;     // ヘッダー下に8px余白
+        const stageTopAfter = r.top + delta;
+        if (stageTopAfter < safeTop){
+          delta += (safeTop - stageTopAfter);
+        }
+      }
+      // --------------------------------------------------------
+
       stage.style.transform = `translateY(${delta}px)`;
 }
 
