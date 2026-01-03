@@ -246,7 +246,7 @@ function alignStageToViewportCenter(){
       const stageCenterY = r.top + r.height / 2;
 
       const isMobileLayout = window.matchMedia('(max-width: 920px)').matches;
-      const liftPx = isMobileLayout ? 160 : 0;
+      const liftPx = isMobileLayout ? 180 : 0;
 
       const viewportCenterY = (window.innerHeight / 2) - liftPx;
       let delta = viewportCenterY - stageCenterY;
