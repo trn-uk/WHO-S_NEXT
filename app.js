@@ -363,37 +363,7 @@ pickInput.addEventListener('keydown', (e) => {
   }
 });
 
-let _resetGuard = 0;
-function onResetTap(e){
-  // 二重発火防止（pointerup + click など）
-  const t = Date.now();
-  if (t - _resetGuard < 700) return;
-  _resetGuard = t;
-
-  // iOSで click 変換が不安定なため、ここで確実にユーザー操作扱いにする
-  e.preventDefault();
-  e.stopPropagation();
-
-  resetAll();
-}
-
-// まず通常の click
-resetBtn.addEventListener('click', onResetTap);
-
-// iOS/Androidでより確実な経路
-resetBtn.addEventListener('pointerup', onResetTap);
-
-// pointer未対応ブラウザ用フォールバック（古いiOSなど）
-resetBtn.addEventListener('touchend', onResetTap, { passive: false });
-
-window.addEventListener('storage', (e) => {
-  if (e.key !== STORAGE_KEY) return;
-  const s = loadState();
-  if (!s) return;
-  state = s;
-  render();
-  showToast('他のタブの更新を反映した');
-});
+resetBtn.addEventListener('click', resetAll);
 
 window.addEventListener('resize', () => {
   requestAnimationFrame(alignStageToViewportCenter);
