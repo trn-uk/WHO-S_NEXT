@@ -67,6 +67,7 @@
 
 ## リセット方法
 
+![resetbutton](assets/resetbutton_screenshot.png)
 画面左上の **正方形が重なったのマーク** がリセットボタンです。
 
 * タップすると **確認ダイアログ** が表示されます
