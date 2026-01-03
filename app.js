@@ -32,8 +32,8 @@ const ROSTER = [
 
 const THEMES = [
   { ac: '#c90000', bg: '#e9e7e2' },
-  { ac: '#e72805', bg: '#e7dece' },
   { ac: '#e6a5bd', bg: '#24432d' },
+  { ac: '#e72805', bg: '#e7dece' },
   { ac: '#d4ea06', bg: '#080a58' },
   { ac: '#1e1e22', bg: '#e9e7e2' },
   { ac: '#e92000', bg: '#a2cfc5' },
