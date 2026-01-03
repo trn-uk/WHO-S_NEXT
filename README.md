@@ -105,7 +105,7 @@
 
 ### 名簿を変更したい場合
 
-`script.js` 内の `ROSTER` を編集してください。
+`app.js` 内の `ROSTER` を編集してください。
 
 ```js
 const ROSTER = [
