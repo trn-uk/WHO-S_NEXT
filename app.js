@@ -238,16 +238,21 @@ function getColsForPick(n){
 
 function alignStageToViewportCenter(){
   const stage = document.getElementById('stage');
-  if (!stage) return;
+      if (!stage) return;
 
-  stage.style.transform = 'translateY(0px)';
+      stage.style.transform = 'translateY(0px)';
 
-  const r = stage.getBoundingClientRect();
-  const stageCenterY = r.top + r.height / 2;
-  const viewportCenterY = window.innerHeight / 2;
+      const r = stage.getBoundingClientRect();
+      const stageCenterY = r.top + r.height / 2;
 
-  const delta = viewportCenterY - stageCenterY;
-  stage.style.transform = `translateY(${delta}px)`;
+      // スマホ（HISTORYが下に落ちる幅）では、見える範囲の上側に寄せたいのでオフセットを入れる
+      const isMobileLayout = window.matchMedia('(max-width: 920px)').matches;
+      const liftPx = isMobileLayout ? 140 : 0;
+
+      const viewportCenterY = (window.innerHeight / 2) - liftPx;
+
+      const delta = viewportCenterY - stageCenterY;
+      stage.style.transform = `translateY(${delta}px)`;
 }
 
 function renderCenter(){
