@@ -401,3 +401,32 @@ button:focus-visible, input:focus-visible{
   .nameCard{ animation: none; opacity:1; transform:none; }
   *{ transition-duration: 1ms !important; }
 }
+
+@media (max-width: 920px){
+      /* HISTORYが下に回る時だけ：上げすぎ(-50px)を弱めて少し下に戻す */
+      :root{
+        /* カード幅を画面の70%に。ただしPCサイズは超えない */
+        --main-w: min(70vw, 380px);
+
+        /* 高さも少しだけ縮める */
+        --main-h: min(90px, 30vh);
+      }
+
+      /* WHO'S NEXT? */
+      .stageTitle{
+        font-size: clamp(28px, 7vw, 50px);
+      }
+
+      /* START / 名前カード 共通 */
+      .mainCard{
+        font-size: clamp(28px, 9vw, 44px);
+      }
+
+      /* 名前カード内 */
+      .pickName{
+        font-size: clamp(18px, 5vw, 22px);
+      }
+      .side{
+        transform: translateY(-5px);
+      }
+}
