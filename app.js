@@ -28,7 +28,7 @@ const ROSTER = [
   { id: '25', name: '鈴木 桜乃' },
   { id: '26', name: '芳野 芽衣' },
   { id: '27', name: '鈴木 カンナ' },
-  { id: '27', name: '松下 驍生' }
+  { id: '28', name: '松下 驍生' }
 ];
 
 const THEMES = [
