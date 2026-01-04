@@ -338,7 +338,7 @@ footer{
   align-items:center;
   gap: 10px;
   border: 0px solid var(--ac);
-  border-radius: 999px;
+  border-radius: 0px;
   padding: 10px 14px;
   box-shadow: var(--shadow);
   background: color-mix(in oklab, var(--bg) 92%, transparent);
